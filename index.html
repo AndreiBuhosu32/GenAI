@@ -2,28 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Chat Test</title>
+    <style type='text/css'>
+        .embeddedServiceHelpButton .helpButton .uiButton {
+            background-color: #FF872C;
+            font-family: "Salesforce Sans", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+            outline: 1px solid #FF872C;
+        }
+        @font-face {
+            font-family: 'Salesforce Sans';
+            src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
+            url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
+        }
+    </style>
 </head>
 <body>
     <h1>Chat Test Page</h1>
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
     <script type='text/javascript'>
-        function initEmbeddedMessaging() {
-            try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; // Set language to 'en_UK'
-                embeddedservice_bootstrap.init(
-                    '00Ddt0000001Zrl',
-                    'UK_Live_Chat_MIAW',
-                    'https://secretescapes--miaw.sandbox.my.site.com/ESWUKLiveChatMIAW1716941621340',
-                    {
-                        scrt2URL: 'https://secretescapes--miaw.sandbox.my.salesforce-scrt.com'
-                    }
-                );
-            } catch (err) {
-                console.error('Error loading Embedded Messaging: ', err);
-            }
+        var initESW = function(gslbBaseURL) {
+            embedded_svc.settings.displayHelpButton = true; //Or false
+            embedded_svc.settings.language = 'en_US'; //For example, enter 'en' or 'en-US'
+
+            // Settings for Chat
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
+
+            embedded_svc.init(
+                'https://secretescapes--miaw.sandbox.my.salesforce.com',
+                'https://secretescapes--miaw.sandbox.my.site.com/EinsteinChatBot',
+                gslbBaseURL,
+                '00Ddt0000001Zrl',
+                'Einstein_Chat_Bot_UK',
+                {
+                    baseLiveAgentContentURL: 'https://c.la2s-core1.sfdc-cehfhs.salesforceliveagent.com/content',
+                    deploymentId: '57269000000TYqn',
+                    buttonId: '57369000000TZTj',
+                    baseLiveAgentURL: 'https://d.la2s-core1.sfdc-cehfhs.salesforceliveagent.com/chat',
+                    eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I69000000XZkPEAW_18113ef485a',
+                    isOfflineSupportEnabled: false
+                }
+            );
         };
+
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://secretescapes--miaw.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
     </script>
-    <script type='text/javascript' src='https://secretescapes--miaw.sandbox.my.site.com/ESWUKLiveChatMIAW1716941621340/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
