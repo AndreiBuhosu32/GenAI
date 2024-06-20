@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Chat Test</title>
-        <style type='text/css'>
+    <style type='text/css'>
         .embeddedServiceHelpButton .helpButton .uiButton {
             background-color: #FF872C;
             font-family: "Salesforce Sans", sans-serif;
@@ -21,10 +21,12 @@
 </head>
 <body>
     <h1>Chat Test Page</h1>
+
     <script type='text/javascript'>
         function initEmbeddedMessaging() {
             try {
-                embeddedservice_bootstrap.settings.language = 'en_US';
+                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
                 embeddedservice_bootstrap.init(
                     '00Ddt0000001Zrl',
                     'UK_Live_Chat_MIAW',
