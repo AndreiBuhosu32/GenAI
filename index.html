@@ -29,17 +29,22 @@
         var subject = "Support Request"; // Replace with dynamic value
         var bookingId = "123456789"; // Replace with dynamic value
 
+        window.addEventListener("onEmbeddedMessagingReady", () => {
+            console.log("Received the onEmbeddedMessagingReady event…");
+
+            // Send data to Salesforce
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                "_FirstName" : firstName,
+                "_LastName" : lastName,
+                "_Email" : email,
+                "_Subject" : subject,
+                "Booking_Id" : bookingId
+            });
+        });
+
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-                embeddedservice_bootstrap.settings.extraPrechatFormDetails = [
-                    {"label":"First Name", "value": firstName, "displayToAgent":true, "transcriptFields":["FirstName"], "prechatDisplayType":"Hidden"},
-                    {"label":"Last Name", "value": lastName, "displayToAgent":true, "transcriptFields":["LastName"], "prechatDisplayType":"Hidden"},
-                    {"label":"Email", "value": email, "displayToAgent":true, "transcriptFields":["Email"], "prechatDisplayType":"Hidden"},
-                    {"label":"Subject", "value": subject, "displayToAgent":true, "transcriptFields":["Subject"], "prechatDisplayType":"Hidden"},
-                    {"label":"Booking Id", "value": bookingId, "displayToAgent":true, "transcriptFields":["Booking_Id"], "prechatDisplayType":"Hidden"}
-                ];
 
                 embeddedservice_bootstrap.init(
                     '00Ddt0000001Zrl',
@@ -52,7 +57,7 @@
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
             }
-        };
+        }
     </script>
     <script type='text/javascript' src='https://secretescapes--miaw.sandbox.my.site.com/ESWUKLiveChatMIAW21718965394522/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
