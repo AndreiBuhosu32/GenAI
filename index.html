@@ -22,16 +22,23 @@
 <body>
     <h1>Chat Test Page</h1>
     <script type='text/javascript'>
+        // Set the hidden values dynamically or statically here
+        var firstName = "John"; // Replace with dynamic value
+        var lastName = "Doe"; // Replace with dynamic value
+        var email = "john.doe@example.com"; // Replace with dynamic value
+        var subject = "Support Request"; // Replace with dynamic value
+        var bookingId = "123456789"; // Replace with dynamic value
+
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
                 embeddedservice_bootstrap.settings.extraPrechatFormDetails = [
-                    {"label":"First Name", "value":"John", "displayToAgent":true, "transcriptFields":["FirstName"], "prechatDisplayType":"Hidden"},
-                    {"label":"Last Name", "value":"Doe", "displayToAgent":true, "transcriptFields":["LastName"], "prechatDisplayType":"Hidden"},
-                    {"label":"Email", "value":"john.doe@example.com", "displayToAgent":true, "transcriptFields":["Email"], "prechatDisplayType":"Hidden"},
-                    {"label":"Subject", "value":"Support Request", "displayToAgent":true, "transcriptFields":["Subject"], "prechatDisplayType":"Hidden"},
-                    {"label":"Booking Id", "value":"123456789", "displayToAgent":true, "transcriptFields":["Booking_Id"], "prechatDisplayType":"Hidden"}
+                    {"label":"First Name", "value": firstName, "displayToAgent":true, "transcriptFields":["FirstName"], "prechatDisplayType":"Hidden"},
+                    {"label":"Last Name", "value": lastName, "displayToAgent":true, "transcriptFields":["LastName"], "prechatDisplayType":"Hidden"},
+                    {"label":"Email", "value": email, "displayToAgent":true, "transcriptFields":["Email"], "prechatDisplayType":"Hidden"},
+                    {"label":"Subject", "value": subject, "displayToAgent":true, "transcriptFields":["Subject"], "prechatDisplayType":"Hidden"},
+                    {"label":"Booking Id", "value": bookingId, "displayToAgent":true, "transcriptFields":["Booking_Id"], "prechatDisplayType":"Hidden"}
                 ];
 
                 embeddedservice_bootstrap.init(
