@@ -27,46 +27,11 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
                 embeddedservice_bootstrap.settings.extraPrechatFormDetails = [
-                    {
-                        "label": "First Name", 
-                        "value": "John", 
-                        "displayToAgent": true, 
-                        "transcriptFields": ["FirstName"], 
-                        "prechatDisplayType": "Hidden",
-                        "required": false
-                    },
-                    {
-                        "label": "Last Name", 
-                        "value": "Doe", 
-                        "displayToAgent": true, 
-                        "transcriptFields": ["LastName"], 
-                        "prechatDisplayType": "Hidden",
-                        "required": false
-                    },
-                    {
-                        "label": "Email", 
-                        "value": "john.doe@example.com", 
-                        "displayToAgent": true, 
-                        "transcriptFields": ["Email"], 
-                        "prechatDisplayType": "Hidden",
-                        "required": false
-                    },
-                    {
-                        "label": "Subject", 
-                        "value": "Support Request", 
-                        "displayToAgent": true, 
-                        "transcriptFields": ["Subject"], 
-                        "prechatDisplayType": "Hidden",
-                        "required": false
-                    },
-                    {
-                        "label": "Booking Id", 
-                        "value": "123456789", 
-                        "displayToAgent": true, 
-                        "transcriptFields": ["Booking_Id"], 
-                        "prechatDisplayType": "Hidden",
-                        "required": false
-                    }
+                    {"label":"First Name", "value":"John", "displayToAgent":true, "transcriptFields":["FirstName"], "prechatDisplayType":"Hidden"},
+                    {"label":"Last Name", "value":"Doe", "displayToAgent":true, "transcriptFields":["LastName"], "prechatDisplayType":"Hidden"},
+                    {"label":"Email", "value":"john.doe@example.com", "displayToAgent":true, "transcriptFields":["Email"], "prechatDisplayType":"Hidden"},
+                    {"label":"Subject", "value":"Support Request", "displayToAgent":true, "transcriptFields":["Subject"], "prechatDisplayType":"Hidden"},
+                    {"label":"Booking Id", "value":"123456789", "displayToAgent":true, "transcriptFields":["Booking_Id"], "prechatDisplayType":"Hidden"}
                 ];
 
                 embeddedservice_bootstrap.init(
@@ -80,7 +45,7 @@
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
             }
-        }
+        };
     </script>
     <script type='text/javascript' src='https://secretescapes--miaw.sandbox.my.site.com/ESWUKLiveChatMIAW21718965394522/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
