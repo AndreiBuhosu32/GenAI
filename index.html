@@ -32,17 +32,17 @@
         window.addEventListener("onEmbeddedMessagingReady", () => {
             console.log("Received the onEmbeddedMessagingReady event…");
 
-            // Send data to Salesforce
+            // Send data to Salesforce using the Channel Variable Names
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                "_FirstName": firstName,
-                "_LastName": lastName,
-                "_Email": email,
-                "_Subject": subject,
+                "_firstName": firstName,
+                "_lastName": lastName,
+                "_email": email,
+                "_subject": subject,
                 "Booking_Id": bookingId
             });
 
             // Optionally remove any items from the previous list that you don't want to send
-            // embeddedservice_bootstrap.prechatAPI.removeHiddenPrechatFields(["_Email"]);
+            // embeddedservice_bootstrap.prechatAPI.removeHiddenPrechatFields(["_email"]);
         });
 
         function initEmbeddedMessaging() {
