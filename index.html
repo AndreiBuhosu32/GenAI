@@ -42,14 +42,10 @@
             // Send data to Salesforce using the Channel Variable Names
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
                 "_firstName": firstName,
-                                "First Name": firstName,
-                                "_FirstName": firstName,
-                                "FirstName": firstName,
                 "_lastName": lastName,
                 "_email": email,
                 "_subject": subject,
-                "Booking Id": bookingId,
-                                "Booking_Id": bookingId
+                "Booking_Id": bookingId
             });
 
             // Optionally remove any items from the previous list that you don't want to send
