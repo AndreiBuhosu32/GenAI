@@ -34,12 +34,15 @@
 
             // Send data to Salesforce
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                "_FirstName" : firstName,
-                "_LastName" : lastName,
-                "_Email" : email,
-                "_Subject" : subject,
-                "Booking_Id" : bookingId
+                "_FirstName": firstName,
+                "_LastName": lastName,
+                "_Email": email,
+                "_Subject": subject,
+                "Booking_Id": bookingId
             });
+
+            // Optionally remove any items from the previous list that you don't want to send
+            // embeddedservice_bootstrap.prechatAPI.removeHiddenPrechatFields(["_Email"]);
         });
 
         function initEmbeddedMessaging() {
@@ -57,7 +60,7 @@
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
             }
-        }
+        };
     </script>
     <script type='text/javascript' src='https://secretescapes--miaw.sandbox.my.site.com/ESWUKLiveChatMIAW21718965394522/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
